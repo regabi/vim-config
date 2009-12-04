@@ -1,6 +1,6 @@
 set nocompatible
 
-colorscheme idleFingers
+colorscheme moria
 set linespace=2
 
 syntax on
@@ -11,7 +11,7 @@ set expandtab
 set sts=2
 
 " Line numbers
-set nonumber
+set nu
 
 " Hide menubar
 set go-=T
@@ -20,8 +20,8 @@ filetype on
 filetype indent on
 
 " Default window size
-set lines=45
-set columns=90
+set lines=55
+set columns=150
 
 " Indenting preferences
 set smartindent
@@ -30,7 +30,7 @@ set autoindent
 " Set font
 "set guifont=ProFontX:h9
 "set guifont=Menlo:h11
-set guifont=Bitstream_Vera_Sans_Mono:h11
+set guifont=Inconsolata:h14
 
 "let ruby_operators=0
 
@@ -55,9 +55,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" Easier way to switch between splits"
+map <C-j> <C-w>w
+map <C-k> <C-w>W
+
 " FuzzyFinder Textmate
 " (backslash)t
-map <Leader>t :FuzzyFinderTextMate<CR>
+map <C-T> :FuzzyFinderTextMate<CR>
 
 " Map <leader>p to NERDtree
 " (backslash)p
@@ -71,7 +75,7 @@ let NERDSpaceDelims=1
 " Reduce number of entries found for speed
 let g:FuzzyFinderOptions.Base.enumerating_limit = 25
 " Increase number of files FuzzyFinder can load
-let g:fuzzy_ceiling = 40000
+let g:fuzzy_ceiling = 100000
 
 " Remove all trailing whitespaces when saving a file
 autocmd BufWritePre * :%s/\s\+$//e
